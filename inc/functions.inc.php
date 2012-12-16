@@ -148,8 +148,11 @@ function print_tree_structure($treestructure,$filter="all",$editmode=FALSE)
 
           // Affichage de l'image à gauche du titre
           $current = htmlspecialchars(urlencode($file));
+          echo '<a href="'.$current.'">';
+            echo '<img src="ressources/download.png" title="Download this file" /> &nbsp;';
+          echo '</a>';
           echo '<a href="watch.php?file='.$current.'">';
-            echo '<img src="'.get_file_icon($file).'" title="Stream or download this file" /> &nbsp;';
+            echo '<img src="'.get_file_icon($file).'" title="Watch or download this file" /> &nbsp;';
           echo '</a>';
 
           // Affichage du titre (soulignement si marqué comme vu)
