@@ -173,11 +173,11 @@ function print_tree_structure($treestructure, $editmode = FALSE, $father = "")
     // Si on est sur un dossier
     if(is_array($file))
     {
-      $key = addslashes(basename($key));
+      $key = basename($key);
       echo '<div class="onedir">';
       if($editmode) echo '<input name="Files[]" id="Files" type="checkbox" value="'.$father.htmlspecialchars($key).'" onclick="CheckLikes(this);"/>';
-      echo '<img src="ressources/folder.png" onclick="showhidedir(\''.$key.'\');return false;" class="pointerLink imgfolder" />
-      <span class="pointerLink" onclick="showhidedir(\''.$key.'\');return false;">'.$key.'</span></div>';
+      echo '<img src="ressources/folder.png" onclick="showhidedir(\''.addslashes($key).'\');return false;" class="pointerLink imgfolder" />
+      <span class="pointerLink" onclick="showhidedir(\''.addslashes($key).'\');return false;">'.$key.'</span></div>';
       echo '<div id="'.$key.'" class="dirInList" style="display:none;">';
       print_tree_structure($file, $editmode, $father.htmlspecialchars($key)."/");
       echo '</div>';
