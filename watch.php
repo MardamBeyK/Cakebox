@@ -61,7 +61,7 @@ endif;
     <?php endif; ?>
 </head>
 
-<body <?php if ($detect_OS == "Linux-Windows-others"): ?> onload="play('vlc1', '<?php echo DOWNLOAD_LINK.$filePath; ?>')" <?php endif; ?>>
+<body <?php if ($detect_OS == "Linux-Windows-others"): ?> onload="play('vlc1', '<?php echo DOWNLOAD_LINK.addslashes($filePath); ?>')" <?php endif; ?>>
     <header>
         <div id="logo">
             <a href="index.php">
@@ -146,7 +146,7 @@ endif;
         <?php endif; //!Is video file ?>
 
         <div class="download_button">
-            <a href="<?php echo DOWNLOAD_LINK.$filePath; ?>" download="<?php echo DOWNLOAD_LINK.$filePath; ?>">
+            <a href="<?php echo DOWNLOAD_LINK.$filePath; ?>" download="<?php echo pathInfo['basename']; ?>">
               <img src="ressources/<?php echo $lang[LOCAL_LANG]['file_img_download']; ?>" />
             </a><br/>
             <?php echo $lang[LOCAL_LANG]['right_click']; ?><br/>
