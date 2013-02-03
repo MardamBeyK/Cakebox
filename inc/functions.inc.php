@@ -38,6 +38,12 @@ if (!file_exists("config.php"))
   define('LOCAL_DL_PATH', 'downloads');        // Modifie le dossier que surveille Cakebox
   define('DOWNLOAD_LINK', "http://".$identity_inLink."/cakebox/");  // Modifie l'URL de stream des fichiers
   $excludeFiles = array(".", "..", ".htaccess", "");  // Liste des fichiers ignorés dans le listing de Cakebox
+  define('SEEN_SPAN', '<span style="border-bottom:2px dotted #76D6B7;">');// Modifie le style du module vu/non vu
+  /* Options Divx Web Player*/
+  define('USE_DIVX', FALSE);                    		// On choisi le lecteur DivX Web Player par défaut
+  define('DIVX_AUTOPLAY', 'FALSE');                    // Option autoplay (démarrage de la lecture automatique)
+  define('DIVX_WIDTH', '600');                    	// Option de la largeur
+  define('DIVX_HEIGTH', '400');                   	// Option de la hauteur
 }
 // Surcharge la configuration
 else
@@ -201,14 +207,14 @@ function print_tree_structure($treestructure, $editmode = FALSE, $father = "")
         echo '<img src="ressources/download.png" title="Download this file" /> &nbsp;';
       echo '</a>';
 
-      echo '<a href="watch.php?file='.$file.'">';
+      echo '<a href="watch.php?file='.urlencode($file).'">';
         echo '<img src="'.get_file_icon($file).'" title="Stream or download this file" /> &nbsp;';
       echo '</a>';
 
       if (SEEN_MODE_ENABLE && file_exists("data/".$pathInfo['basename']))
       {
 	      // Affichage du titre (soulignement si marqué comme vu)
-	      echo '<span style="border-bottom:2px dotted #76D6B7;">';
+	      echo SEEN_SPAN;
 	      echo basename(htmlspecialchars($file));
 	      echo '</span>';
       }
