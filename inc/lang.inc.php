@@ -45,6 +45,7 @@ $lang['fr']['watch_previous']           =   "Voir l'épisode précédent";
 $lang['fr']['right_click']              =   "Clic droit et \"Enregistrer sous\" pour télécharger";
 $lang['fr']['size']                     =   "Taille";
 $lang['fr']['file_img_download']        =   "telechargerfichier.png";
+$lang['fr']['html5_support']            =   "Désolé, votre navigateur ne supporte pas la lecture de vidéos MP4 via HTML5.";
 // update
 $lang['fr']['new_version']              =   "Une nouvelle version de Cakebox est disponible";
 $lang['fr']['click_here_update']        =   "Cliquez ici pour lancer la mise à jour";
@@ -96,6 +97,7 @@ $lang['en']['watch_previous']           =   "Watch the previous episode";
 $lang['en']['right_click']              =   "Right click and \"Save link as\" to download it";
 $lang['en']['size']                     =   "Size :";
 $lang['en']['file_img_download']        =   "downloadfile.png";
+$lang['fr']['html5_support']            =   "Sorry, your browser does not support playback of MP4 video via HTML5.";
 // update
 $lang['en']['new_version']              =   "A new version is available";
 $lang['en']['click_here_update']        =   "Click here to update";
