@@ -125,7 +125,7 @@ endif;
               <div id="mediaspace" style="margin-bottom:50px;">player 1</div>
 				<video width="720" height="440" controls poster="">
 				<source src="<?php echo DOWNLOAD_LINK.$filePath; ?>" type="video/mp4" />
-				<em>Désolé, votre navigateur ne supporte pas la lecture de vidéos MP4 via HTML5.</em>
+				<em><?php echo $lang[LOCAL_LANG]['html5_support']; ?></em>
 				</video>
         <?php elseif ($detect_OS == "OSX" || USE_DIVX): ?>
 
