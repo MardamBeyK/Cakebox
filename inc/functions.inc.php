@@ -60,7 +60,7 @@ function isVideoFile($path)
 {
     $pathInfo = pathinfo($path);
     $mime = explode("/", mime_content_type($path));
-    if ($mime[0] == "video" || $pathInfo['extension'] == "mkv" || $pathInfo['extension'] == "wmv") // Les films en HD ne passent pas forcement...
+    if ($mime[0] == "video" || $pathInfo['extension'] == "mkv" || $pathInfo['extension'] == "mp4" || $pathInfo['extension'] == "wmv") // Les films en HD ne passent pas forcement...
         return TRUE;
     return FALSE;
 }
