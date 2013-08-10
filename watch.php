@@ -112,7 +112,7 @@ endif;
             <a href="https://github.com/MardamBeyK/Cakebox/wiki/Impossible-de-lire-une-vid%C3%A9o-en-streaming" target="_blank" class="help"><?php echo $lang[LOCAL_LANG]['help_watching']; ?></a>
         </p>
 
-        <center>
+        <div align="center">
         <?php if (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'wmv'): ?>
               <div id="mediaspace" style="margin-bottom:50px;">player 1</div>
         <script type='text/javascript'>
@@ -121,7 +121,13 @@ endif;
           var cfg = {height:'440', width:'720', file:"<?php echo DOWNLOAD_LINK.$filePath; ?>", autostart:"true"};
           var ply = new jeroenwijering.Player(cnt,src,cfg);
         </script>
-        <?php if ($detect_OS == "OSX" || USE_DIVX): ?>
+        <?php elseif (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'mp4'): ?>
+              <div id="mediaspace" style="margin-bottom:50px;">player 1</div>
+				<video width="720" height="440" controls poster="">
+				<source src="<?php echo DOWNLOAD_LINK.$filePath; ?>" type="video/mp4" />
+				<em>Désolé, votre navigateur ne supporte pas la lecture de vidéos MP4 via HTML5.</em>
+				</video>
+        <?php elseif ($detect_OS == "OSX" || USE_DIVX): ?>
 
             <!-- Embed DivX Player (for OS X) -->
             <object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" width="<?php echo DIVX_WIDTH ?>" height="<?php echo DIVX_HEIGTH ?>" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">
@@ -157,7 +163,7 @@ endif;
             echo '</a></div>';
         }
         ?>
-        </center>
+        </div>
         <?php endif; //!Is video file ?>
 
         <div class="download_button">
