@@ -97,7 +97,7 @@ $lang['en']['watch_previous']           =   "Watch the previous episode";
 $lang['en']['right_click']              =   "Right click and \"Save link as\" to download it";
 $lang['en']['size']                     =   "Size :";
 $lang['en']['file_img_download']        =   "downloadfile.png";
-$lang['fr']['html5_support']            =   "Sorry, your browser does not support playback of MP4 video via HTML5.";
+$lang['en']['html5_support']            =   "Sorry, your browser does not support playback of MP4 video via HTML5.";
 // update
 $lang['en']['new_version']              =   "A new version is available";
 $lang['en']['click_here_update']        =   "Click here to update";
