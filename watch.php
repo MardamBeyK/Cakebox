@@ -114,7 +114,6 @@ endif;
 
         <div align="center">
         <?php if (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'wmv'): ?>
-              <div id="mediaspace" style="margin-bottom:50px;">player 1</div>
         <script type='text/javascript'>
           var cnt = document.getElementById('mediaspace');
           var src = 'ressources/wmvplayer.xaml';
@@ -122,7 +121,6 @@ endif;
           var ply = new jeroenwijering.Player(cnt,src,cfg);
         </script>
         <?php elseif (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'mp4'): ?>
-              <div id="mediaspace" style="margin-bottom:50px;">player 1</div>
 				<video width="720" height="440" controls poster="">
 				<source src="<?php echo DOWNLOAD_LINK.$filePath; ?>" type="video/mp4" />
 				<em><?php echo $lang[LOCAL_LANG]['html5_support']; ?></em>
