@@ -41,6 +41,11 @@ endif;
     </script>
     <script src="ressources/oXHR.js"></script>
     <!-- / Style & ergo -->
+	
+    <!-- WMV Player -->
+    <script type="text/javascript" src="ressources/silverlight.js"></script>
+    <script type="text/javascript"  src="ressources/wmvplayer.js"></script>
+    <!-- / WMV Player -->
 
     <?php if ($detect_OS == "Linux-Windows-others" && isVideoFile($filePath)): ?>
 
@@ -107,8 +112,20 @@ endif;
             <a href="https://github.com/MardamBeyK/Cakebox/wiki/Impossible-de-lire-une-vid%C3%A9o-en-streaming" target="_blank" class="help"><?php echo $lang[LOCAL_LANG]['help_watching']; ?></a>
         </p>
 
-        <center>
-        <?php if ($detect_OS == "OSX" || USE_DIVX): ?>
+        <div align="center">
+        <?php if (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'wmv'): ?>
+        <script type='text/javascript'>
+          var cnt = document.getElementById('mediaspace');
+          var src = 'ressources/wmvplayer.xaml';
+          var cfg = {height:'440', width:'720', file:"<?php echo DOWNLOAD_LINK.$filePath; ?>", autostart:"true"};
+          var ply = new jeroenwijering.Player(cnt,src,cfg);
+        </script>
+        <?php elseif (pathinfo(DOWNLOAD_LINK.$filePath, PATHINFO_EXTENSION) == 'mp4'): ?>
+				<video width="720" height="440" controls poster="">
+				<source src="<?php echo DOWNLOAD_LINK.$filePath; ?>" type="video/mp4" />
+				<em><?php echo $lang[LOCAL_LANG]['html5_support']; ?></em>
+				</video>
+        <?php elseif ($detect_OS == "OSX" || USE_DIVX): ?>
 
             <!-- Embed DivX Player (for OS X) -->
             <object classid="clsid:67DABFBF-D0AB-41fa-9C46-CC0F21721616" width="<?php echo DIVX_WIDTH ?>" height="<?php echo DIVX_HEIGTH ?>" codebase="http://go.divx.com/plugin/DivXBrowserPlugin.cab">
@@ -144,7 +161,7 @@ endif;
             echo '</a></div>';
         }
         ?>
-        </center>
+        </div>
         <?php endif; //!Is video file ?>
 
         <div class="download_button">
